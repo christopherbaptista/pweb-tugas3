@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katering - Warung Tegal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/wired/64/000000/rice-bowl.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <style>
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Warung Tegal</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="makanan.html">Menu</a></li>
+                    <li><a href="katering.html">Paket Katering</a></li>
+                    <li><a href="tentang.html">Tentang</a></li>
+                    <li><a href="kontak.html" class="current">Kontak</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="courses">
+            <div class="kontak">
+                <h2>Kontak Kami</h2>
+                <ul style="margin-top: 25px;">
+                    <li>
+                        <i class="fas fa-phone-alt"></i> +62-12345678
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        warungtegal@mail.com
+                    </li>
+                </ul>
+                <h2 style="margin-top: 50px;">Kantor Kami</h2>
+                <div id="map"></div>
+            </div>
+        </section>
+        <aside>
+            <section>
+                <h2>Tentang Makanan</h2>
+                <iframe width="240" style="border-radius: 20px;" src="https://www.youtube.com/embed/TZdfakj-yE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </section>
+            <section>
+                <h2>Musik Web</h2>
+                <p>Afgan - Panah Asmara</p>
+                <audio controls style="width: 100%;">
+                    <source src="song/Afgan - Panah Asmara.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p>Afgan - Jodoh Pasti Bertemu</p>
+                <audio controls style="width: 100%;">
+                    <source src="song/Afgan_Jodoh_Pasti_Bertemu.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </section>
+        </aside>
+        <footer>
+            &copy; 2021 Warung Tegal
+        </footer>  
+    </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsgeHyusQ5rTewDI4KZ7JBC5FIOtYUNHs&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <script>
+        function initMap() {
+            // The location of Uluru
+            const uluru = { lat: -7.280133, lng: 112.789637 };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 9,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+</body>
+</html>
