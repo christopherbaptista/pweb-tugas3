@@ -8,13 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/wired/64/000000/rice-bowl.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-    <style>
-        #map {
-            height: 480px;
-            border-radius: 20px;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -43,7 +36,7 @@
                     </li>
                 </ul>
                 <h2 style="margin-top: 50px;">Kantor Kami</h2>
-                <img src="map.JPG" id="map"/>
+                <div id="googleMap" style="width:100%; border-radius: 20px; height:380px;"></div>
             </div>
         </section>
         <aside>
@@ -69,25 +62,20 @@
             &copy; 2021 Warung Tegal
         </footer>  
     </div>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsgeHyusQ5rTewDI4KZ7JBC5FIOtYUNHs&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script>
-        function initMap() {
-            // The location of Uluru
-            const uluru = { lat: -7.280133, lng: 112.789637 };
-            // The map, centered at Uluru
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 9,
-                center: uluru,
-            });
-            // The marker, positioned at Uluru
-            const marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-            });
+        function initialize() {
+        var propertiPeta = {
+            center:new google.maps.LatLng(-7.280133, 112.789637),
+            zoom:10,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        
+        var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
         }
+
+        // event jendela di-load  
+        google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 </body>
 </html>
